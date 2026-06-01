@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "ダッシュボード",
+    "invoices": "請求書",
+    "clients": "クライアント",
+    "settings": "設定",
+    "logout": "ログアウト"
+  },
+  "Dashboard": {
+    "welcome": "お帰りなさい",
+    "overview": "概要",
+    "totalRevenue": "総収益",
+    "outstanding": "未払い",
+    "overdue": "期限切れ",
+    "recentInvoices": "最近の請求書",
+    "viewAll": "すべて見る"
+  },
+  "Invoices": {
+    "title": "請求書",
+    "subtitle": "請求書の管理と追跡",
+    "createInvoice": "請求書を作成",
+    "invoiceNumber": "請求書番号",
+    "client": "クライアント",
+    "amount": "金額",
+    "status": "ステータス",
+    "dueDate": "期日",
+    "paid": "支払済み",
+    "pending": "保留中",
+    "overdue": "期限切れ",
+    "currency": "Currency",
+    "taxRate": "Tax Rate (%)",
+    "lineItems": "Line Items",
+    "description": "Description",
+    "qty": "Qty",
+    "price": "Price",
+    "addAnotherItem": "Add another item",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "saveCreateInvoice": "Save & Create Invoice",
+    "saving": "Saving...",
+    "notesPayment": "Notes / Payment Terms",
+    "backToInvoices": "Back to Invoices",
+    "draft": "Draft",
+    "sent": "Sent"
+  },
+  "Clients": {
+    "title": "クライアント",
+    "subtitle": "クライアントリストの管理",
+    "addClient": "クライアントを追加",
+    "name": "名前",
+    "company": "会社名",
+    "email": "メールアドレス",
+    "phone": "電話番号",
+    "address": "Address",
+    "notes": "Notes",
+    "cancel": "Cancel",
+    "adding": "Adding...",
+    "addClientTitle": "Add New Client",
+    "deleteConfirm": "Are you sure you want to delete this client? This will also delete all their invoices."
+  },
+  "Settings": {
+    "title": "設定",
+    "subtitle": "ビジネスプロファイルと設定の管理",
+    "businessInfo": "ビジネス情報",
+    "emailSending": "メール送信",
+    "saveChanges": "変更を保存",
+    "uiLanguage": "アプリの言語"
+  }
+}

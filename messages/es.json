@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "Panel",
+    "invoices": "Facturas",
+    "clients": "Clientes",
+    "settings": "Ajustes",
+    "logout": "Cerrar sesión"
+  },
+  "Dashboard": {
+    "welcome": "Bienvenido de nuevo",
+    "overview": "Resumen",
+    "totalRevenue": "Ingresos Totales",
+    "outstanding": "Pendiente",
+    "overdue": "Atrasado",
+    "recentInvoices": "Facturas Recientes",
+    "viewAll": "Ver Todo"
+  },
+  "Invoices": {
+    "title": "Facturas",
+    "subtitle": "Gestiona y realiza seguimiento de tus facturas",
+    "createInvoice": "Crear Factura",
+    "invoiceNumber": "Número de Factura",
+    "client": "Cliente",
+    "amount": "Cantidad",
+    "status": "Estado",
+    "dueDate": "Fecha de Vencimiento",
+    "paid": "Pagado",
+    "pending": "Pendiente",
+    "overdue": "Atrasado",
+    "currency": "Currency",
+    "taxRate": "Tax Rate (%)",
+    "lineItems": "Line Items",
+    "description": "Description",
+    "qty": "Qty",
+    "price": "Price",
+    "addAnotherItem": "Add another item",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "saveCreateInvoice": "Save & Create Invoice",
+    "saving": "Saving...",
+    "notesPayment": "Notes / Payment Terms",
+    "backToInvoices": "Back to Invoices",
+    "draft": "Draft",
+    "sent": "Sent"
+  },
+  "Clients": {
+    "title": "Clientes",
+    "subtitle": "Gestiona tu lista de clientes",
+    "addClient": "Añadir Cliente",
+    "name": "Nombre",
+    "company": "Empresa",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "address": "Address",
+    "notes": "Notes",
+    "cancel": "Cancel",
+    "adding": "Adding...",
+    "addClientTitle": "Add New Client",
+    "deleteConfirm": "Are you sure you want to delete this client? This will also delete all their invoices."
+  },
+  "Settings": {
+    "title": "Ajustes",
+    "subtitle": "Gestiona tu perfil de negocio y preferencias",
+    "businessInfo": "Información del Negocio",
+    "emailSending": "Envío de Correos",
+    "saveChanges": "Guardar Cambios",
+    "uiLanguage": "Idioma de la Aplicación"
+  }
+}

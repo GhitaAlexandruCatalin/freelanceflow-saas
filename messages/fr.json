@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "Tableau de bord",
+    "invoices": "Factures",
+    "clients": "Clients",
+    "settings": "Paramètres",
+    "logout": "Déconnexion"
+  },
+  "Dashboard": {
+    "welcome": "Bon retour",
+    "overview": "Aperçu",
+    "totalRevenue": "Revenu Total",
+    "outstanding": "En attente",
+    "overdue": "En retard",
+    "recentInvoices": "Factures Récentes",
+    "viewAll": "Voir Tout"
+  },
+  "Invoices": {
+    "title": "Factures",
+    "subtitle": "Gérez et suivez vos factures",
+    "createInvoice": "Créer une Facture",
+    "invoiceNumber": "Numéro de Facture",
+    "client": "Client",
+    "amount": "Montant",
+    "status": "Statut",
+    "dueDate": "Date d'échéance",
+    "paid": "Payée",
+    "pending": "En attente",
+    "overdue": "En retard",
+    "currency": "Currency",
+    "taxRate": "Tax Rate (%)",
+    "lineItems": "Line Items",
+    "description": "Description",
+    "qty": "Qty",
+    "price": "Price",
+    "addAnotherItem": "Add another item",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "saveCreateInvoice": "Save & Create Invoice",
+    "saving": "Saving...",
+    "notesPayment": "Notes / Payment Terms",
+    "backToInvoices": "Back to Invoices",
+    "draft": "Draft",
+    "sent": "Sent"
+  },
+  "Clients": {
+    "title": "Clients",
+    "subtitle": "Gérez votre liste de clients",
+    "addClient": "Ajouter un Client",
+    "name": "Nom",
+    "company": "Entreprise",
+    "email": "E-mail",
+    "phone": "Téléphone",
+    "address": "Address",
+    "notes": "Notes",
+    "cancel": "Cancel",
+    "adding": "Adding...",
+    "addClientTitle": "Add New Client",
+    "deleteConfirm": "Are you sure you want to delete this client? This will also delete all their invoices."
+  },
+  "Settings": {
+    "title": "Paramètres",
+    "subtitle": "Gérez votre profil professionnel et vos préférences",
+    "businessInfo": "Informations de l'entreprise",
+    "emailSending": "Envoi d'e-mails",
+    "saveChanges": "Enregistrer les modifications",
+    "uiLanguage": "Langue de l'application"
+  }
+}

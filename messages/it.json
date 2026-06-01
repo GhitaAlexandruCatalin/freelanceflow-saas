@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "Dashboard",
+    "invoices": "Fatture",
+    "clients": "Clienti",
+    "settings": "Impostazioni",
+    "logout": "Esci"
+  },
+  "Dashboard": {
+    "welcome": "Bentornato",
+    "overview": "Panoramica",
+    "totalRevenue": "Entrate Totali",
+    "outstanding": "In Sospeso",
+    "overdue": "In Ritardo",
+    "recentInvoices": "Fatture Recenti",
+    "viewAll": "Vedi Tutto"
+  },
+  "Invoices": {
+    "title": "Fatture",
+    "subtitle": "Gestisci e monitora le tue fatture",
+    "createInvoice": "Crea Fattura",
+    "invoiceNumber": "Numero Fattura",
+    "client": "Cliente",
+    "amount": "Importo",
+    "status": "Stato",
+    "dueDate": "Data di Scadenza",
+    "paid": "Pagata",
+    "pending": "In Sospeso",
+    "overdue": "In Ritardo",
+    "currency": "Currency",
+    "taxRate": "Tax Rate (%)",
+    "lineItems": "Line Items",
+    "description": "Description",
+    "qty": "Qty",
+    "price": "Price",
+    "addAnotherItem": "Add another item",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "saveCreateInvoice": "Save & Create Invoice",
+    "saving": "Saving...",
+    "notesPayment": "Notes / Payment Terms",
+    "backToInvoices": "Back to Invoices",
+    "draft": "Draft",
+    "sent": "Sent"
+  },
+  "Clients": {
+    "title": "Clienti",
+    "subtitle": "Gestisci la tua lista clienti",
+    "addClient": "Aggiungi Cliente",
+    "name": "Nome",
+    "company": "Azienda",
+    "email": "Email",
+    "phone": "Telefono",
+    "address": "Address",
+    "notes": "Notes",
+    "cancel": "Cancel",
+    "adding": "Adding...",
+    "addClientTitle": "Add New Client",
+    "deleteConfirm": "Are you sure you want to delete this client? This will also delete all their invoices."
+  },
+  "Settings": {
+    "title": "Impostazioni",
+    "subtitle": "Gestisci il tuo profilo aziendale e le preferenze",
+    "businessInfo": "Informazioni Aziendali",
+    "emailSending": "Invio Email",
+    "saveChanges": "Salva Modifiche",
+    "uiLanguage": "Lingua dell'Applicazione"
+  }
+}

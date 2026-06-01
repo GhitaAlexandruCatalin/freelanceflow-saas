@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "Acasă",
+    "invoices": "Facturi",
+    "clients": "Clienți",
+    "settings": "Setări",
+    "logout": "Deconectare"
+  },
+  "Dashboard": {
+    "welcome": "Bine ai revenit",
+    "overview": "Vedere de ansamblu",
+    "totalRevenue": "Venit Total",
+    "outstanding": "De Încasat",
+    "overdue": "Întârziate",
+    "recentInvoices": "Facturi Recente",
+    "viewAll": "Vezi Tot"
+  },
+  "Invoices": {
+    "title": "Facturi",
+    "subtitle": "Gestionează facturile tale",
+    "createInvoice": "Crează Factură",
+    "invoiceNumber": "Număr Factură",
+    "client": "Client",
+    "amount": "Sumă",
+    "status": "Status",
+    "dueDate": "Scadență",
+    "paid": "Plătită",
+    "pending": "În Așteptare",
+    "overdue": "Întârziată",
+    "currency": "Monedă",
+    "taxRate": "TVA (%)",
+    "lineItems": "Produse / Servicii",
+    "description": "Descriere",
+    "qty": "Cantitate",
+    "price": "Preț",
+    "addAnotherItem": "Adaugă alt produs",
+    "subtotal": "Subtotal",
+    "tax": "TVA",
+    "total": "Total",
+    "saveCreateInvoice": "Salvează & Crează Factura",
+    "saving": "Se salvează...",
+    "notesPayment": "Note / Termeni de Plată",
+    "backToInvoices": "Înapoi la Facturi",
+    "draft": "Ciornă",
+    "sent": "Trimisă"
+  },
+  "Clients": {
+    "title": "Clienți",
+    "subtitle": "Gestionează lista de clienți",
+    "addClient": "Adaugă Client",
+    "name": "Nume",
+    "company": "Companie",
+    "email": "Email",
+    "phone": "Telefon",
+    "address": "Adresă",
+    "notes": "Note",
+    "cancel": "Anulează",
+    "adding": "Se adaugă...",
+    "addClientTitle": "Adaugă Client Nou",
+    "deleteConfirm": "Ești sigur că vrei să ștergi acest client? Se vor șterge și facturile sale."
+  },
+  "Settings": {
+    "title": "Setări",
+    "subtitle": "Gestionează profilul afacerii și preferințele",
+    "businessInfo": "Informații Afacere",
+    "emailSending": "Trimitere Email",
+    "saveChanges": "Salvează Modificările",
+    "uiLanguage": "Limba Aplicației"
+  }
+}

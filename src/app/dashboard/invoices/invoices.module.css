@@ -1,0 +1,263 @@
+.invoicesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-2xl);
+}
+
+.invoicesTitle {
+  font-size: clamp(var(--font-size-xl), 3vw, var(--font-size-3xl));
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* ---------- Table ---------- */
+.invoicesTable {
+  width: 100%;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.invoicesTable table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.invoicesTable th {
+  text-align: left;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 14px 20px;
+  background: var(--bg-tertiary);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.invoicesTable td {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.invoiceNumber {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.clientName {
+  color: var(--text-primary);
+}
+
+.amount {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Status Badges */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+}
+
+.statusDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.statusDraft {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-secondary);
+}
+.statusDraft .statusDot { background: var(--text-muted); }
+
+.statusSent {
+  background: rgba(102, 126, 234, 0.1);
+  color: var(--accent-primary);
+}
+.statusSent .statusDot { background: var(--accent-primary); }
+
+.statusPaid {
+  background: rgba(74, 222, 128, 0.1);
+  color: var(--accent-green);
+}
+.statusPaid .statusDot { background: var(--accent-green); }
+
+.statusOverdue {
+  background: rgba(245, 87, 108, 0.1);
+  color: var(--accent-red);
+}
+.statusOverdue .statusDot { background: var(--accent-red); }
+
+/* ---------- New Invoice Form ---------- */
+.formContainer {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-2xl);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.formGroup label {
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.formInput, .formSelect {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  color: var(--text-primary);
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+}
+
+.formInput:focus, .formSelect:focus {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 0 2px rgba(102, 126, 234, 0.2);
+  outline: none;
+}
+
+/* Line Items */
+.lineItems {
+  margin-top: var(--space-2xl);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--space-2xl);
+}
+
+.lineItemsTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+
+.lineItemHeader {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr auto;
+  gap: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 1px solid var(--border-subtle);
+  margin-bottom: var(--space-md);
+  font-size: var(--font-size-xs);
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.lineItemRow {
+  display: grid;
+  grid-template-columns: 3fr 1fr 1fr auto;
+  gap: var(--space-md);
+  align-items: center;
+  margin-bottom: var(--space-md);
+}
+
+.deleteItemBtn {
+  background: transparent;
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.deleteItemBtn:hover {
+  background: rgba(245, 87, 108, 0.1);
+  color: var(--accent-red);
+}
+
+.addItemBtn {
+  background: transparent;
+  color: var(--accent-primary);
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 0;
+  border: none;
+  cursor: pointer;
+}
+
+.addItemBtn:hover {
+  color: #8c9eff;
+}
+
+/* Totals */
+.totalsBox {
+  margin-top: var(--space-2xl);
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl);
+  width: 300px;
+  margin-left: auto;
+}
+
+.totalRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.totalRow.grandTotal {
+  margin-top: var(--space-md);
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--border-subtle);
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0;
+}
+
+.formActions {
+  margin-top: var(--space-2xl);
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-md);
+  padding-top: var(--space-2xl);
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Empty State */
+.emptyState {
+  background: var(--bg-card);
+  border: 1px dashed var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--space-3xl) var(--space-xl);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,70 @@
+{
+  "Navigation": {
+    "dashboard": "仪表板",
+    "invoices": "发票",
+    "clients": "客户",
+    "settings": "设置",
+    "logout": "登出"
+  },
+  "Dashboard": {
+    "welcome": "欢迎回来",
+    "overview": "概览",
+    "totalRevenue": "总收入",
+    "outstanding": "未结清",
+    "overdue": "已逾期",
+    "recentInvoices": "最近发票",
+    "viewAll": "查看全部"
+  },
+  "Invoices": {
+    "title": "发票",
+    "subtitle": "管理和追踪您的发票",
+    "createInvoice": "创建发票",
+    "invoiceNumber": "发票号码",
+    "client": "客户",
+    "amount": "金额",
+    "status": "状态",
+    "dueDate": "到期日",
+    "paid": "已支付",
+    "pending": "待处理",
+    "overdue": "已逾期",
+    "currency": "Currency",
+    "taxRate": "Tax Rate (%)",
+    "lineItems": "Line Items",
+    "description": "Description",
+    "qty": "Qty",
+    "price": "Price",
+    "addAnotherItem": "Add another item",
+    "subtotal": "Subtotal",
+    "tax": "Tax",
+    "total": "Total",
+    "saveCreateInvoice": "Save & Create Invoice",
+    "saving": "Saving...",
+    "notesPayment": "Notes / Payment Terms",
+    "backToInvoices": "Back to Invoices",
+    "draft": "Draft",
+    "sent": "Sent"
+  },
+  "Clients": {
+    "title": "客户",
+    "subtitle": "管理您的客户列表",
+    "addClient": "添加客户",
+    "name": "姓名",
+    "company": "公司",
+    "email": "电子邮件",
+    "phone": "电话",
+    "address": "Address",
+    "notes": "Notes",
+    "cancel": "Cancel",
+    "adding": "Adding...",
+    "addClientTitle": "Add New Client",
+    "deleteConfirm": "Are you sure you want to delete this client? This will also delete all their invoices."
+  },
+  "Settings": {
+    "title": "设置",
+    "subtitle": "管理您的业务资料和偏好",
+    "businessInfo": "业务信息",
+    "emailSending": "电子邮件发送",
+    "saveChanges": "保存更改",
+    "uiLanguage": "应用语言"
+  }
+}
