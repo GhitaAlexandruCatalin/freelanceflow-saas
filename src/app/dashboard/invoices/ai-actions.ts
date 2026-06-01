@@ -130,6 +130,7 @@ Instructions:
 
           return {
             success: true,
+            error: undefined,
             subject: parsed.subject,
             body: parsed.body,
             source: 'gemini'
@@ -155,6 +156,7 @@ Instructions:
   const template = generateFromTemplate(invoiceDetails)
   return {
     success: true,
+    error: undefined,
     subject: template.subject,
     body: template.body,
     source: 'template'
