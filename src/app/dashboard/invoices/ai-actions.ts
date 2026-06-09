@@ -60,6 +60,7 @@ export async function generateFollowUpEmail(invoiceDetails: {
   tonePreference?: string
   additionalInstructions?: string
   senderName: string
+  isDisputed?: boolean
 }) {
   // Try Gemini AI first
   if (genAI) {
@@ -74,7 +75,9 @@ export async function generateFollowUpEmail(invoiceDetails: {
 
           let toneInstruction = ''
           
-          if (invoiceDetails.tonePreference === 'friendly') {
+          if (invoiceDetails.isDisputed) {
+            toneInstruction = 'Professional, calm, empathetic, and solution-focused. The client has DISPUTED this invoice. DO NOT escalate or demand payment. Instead, acknowledge the dispute, express willingness to discuss and clarify, and propose a resolution (e.g., review deliverables together, schedule a call, offer to adjust if needed). The goal is to PRESERVE the relationship and find common ground, not to threaten or pressure. Use phrases like "I want to make sure we\'re aligned" and "let\'s find a solution that works for both of us".'
+          } else if (invoiceDetails.tonePreference === 'friendly') {
             toneInstruction = 'Friendly, casual, warm, and polite. (Use "tu" if Romanian).'
           } else if (invoiceDetails.tonePreference === 'strict') {
             toneInstruction = 'Extremely strict, firm, direct, and uncompromising. Demand payment immediately. (Must remain formal).'
@@ -98,8 +101,12 @@ export async function generateFollowUpEmail(invoiceDetails: {
           }
           const promptLang = langMap[invoiceDetails.language] || 'English'
 
+          const disputeContext = invoiceDetails.isDisputed 
+            ? `\nIMPORTANT CONTEXT: This invoice has been DISPUTED by the client. This is NOT a late payment follow-up. The client disagrees with the charges. Your email must be de-escalating, empathetic, and solution-oriented. Never threaten, never demand, never escalate.`
+            : ''
+
           const prompt = `You are an intelligent invoicing assistant working for a professional freelancer in a B2B context.
-Your task is to draft a follow-up email to a client regarding an invoice. NEVER include small talk or casual greetings. Go straight to the point in a professional B2B manner.
+Your task is to draft a follow-up email to a client regarding an invoice.${disputeContext} NEVER include small talk or casual greetings. Go straight to the point in a professional B2B manner.
 
 Language to write in: ${promptLang}
 
@@ -108,6 +115,7 @@ Invoice Number: ${invoiceDetails.invoiceNumber}
 Amount Due: ${invoiceDetails.amount}
 Due Date: ${invoiceDetails.dueDate}
 Days Overdue: ${invoiceDetails.daysOverdue} (if negative, it's before the due date)
+Invoice Status: ${invoiceDetails.isDisputed ? 'DISPUTED' : 'Overdue / Unpaid'}
 ${invoiceDetails.additionalInstructions ? `\nUSER CUSTOM INSTRUCTIONS FOR TONE AND CONTEXT:\n"${invoiceDetails.additionalInstructions}"\n` : ''}
 Instructions:
 1. Write a professional B2B email to the client in ${promptLang}.

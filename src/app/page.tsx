@@ -16,7 +16,7 @@ export default function LandingPage() {
           <ul className={styles.navLinks}>
             <li><a href="#features">Features</a></li>
             <li><a href="#how-it-works">How it Works</a></li>
-            <li><a href="#pricing">Pricing</a></li>
+            <li><Link href="/pricing">Pricing</Link></li>
           </ul>
 
           <div className={styles.navActions}>

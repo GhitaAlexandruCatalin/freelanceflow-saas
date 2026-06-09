@@ -32,6 +32,7 @@ export default async function InvoicesPage() {
       case 'sent': return <span className={`${styles.statusBadge} ${styles.statusSent}`}><span className={styles.statusDot}></span>Sent</span>
       case 'paid': return <span className={`${styles.statusBadge} ${styles.statusPaid}`}><span className={styles.statusDot}></span>{t('paid')}</span>
       case 'overdue': return <span className={`${styles.statusBadge} ${styles.statusOverdue}`}><span className={styles.statusDot}></span>{t('overdue')}</span>
+      case 'disputed': return <span className={`${styles.statusBadge} ${styles.statusDisputed}`}><span className={styles.statusDot}></span>Disputed</span>
       default: return null
     }
   }
@@ -101,6 +102,17 @@ export default async function InvoicesPage() {
                           className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem' }}
                         >
                           Mark Paid
+                        </button>
+                      )}
+                      {inv.status !== 'paid' && inv.status !== 'disputed' && (
+                        <button 
+                          formAction={async (formData) => {
+                            'use server'
+                            await updateInvoiceStatus(formData.get('id') as string, 'disputed')
+                          }}
+                          className="btn btn-secondary" style={{ padding: '4px 10px', fontSize: '0.75rem', color: '#f59e0b' }}
+                        >
+                          Disputed
                         </button>
                       )}
                       <button 

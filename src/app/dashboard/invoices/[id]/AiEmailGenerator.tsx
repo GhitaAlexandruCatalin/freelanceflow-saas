@@ -51,6 +51,8 @@ export default function AiEmailGenerator({
     { id: 'strict', label: 'Strict / Firm' }
   ]
 
+  const isDisputed = status === 'disputed'
+
   // Calculate days overdue
   const today = new Date()
   const due = new Date(dueDate)
@@ -73,9 +75,10 @@ export default function AiEmailGenerator({
         dueDate,
         daysOverdue,
         language,
-        tonePreference: selectedTone,
+        tonePreference: isDisputed ? undefined : selectedTone,
         additionalInstructions: customInstructions,
-        senderName
+        senderName,
+        isDisputed
       })
 
       if (result.error) {
@@ -156,18 +159,63 @@ export default function AiEmailGenerator({
   }
 
   if (planTier === 'free') {
+    // Generate a realistic-looking sample email for the blur preview
+    const sampleSubject = daysOverdue > 14 
+      ? `Final Notice: Invoice ${invoiceNumber} - Immediate Action Required`
+      : daysOverdue > 7
+        ? `Reminder: Invoice ${invoiceNumber} - ${daysOverdue} Days Overdue`
+        : `Friendly Reminder: Invoice ${invoiceNumber} - Payment Due`
+    const sampleBody = daysOverdue > 14
+      ? `Dear ${clientName},\n\nThis is an urgent follow-up regarding invoice ${invoiceNumber} for ${amount}, which was due on ${new Date(dueDate).toLocaleDateString()}. Despite our previous reminders, we have not yet received payment.\n\nI would appreciate it if you could prioritize this matter and process the payment at your earliest convenience. If there are any issues or questions regarding this invoice, please let me know so we can resolve them promptly.\n\nThank you for your attention to this matter.\n\nBest regards,\n${senderName}`
+      : `Hi ${clientName.split(' ')[0]},\n\nI hope this message finds you well. I wanted to follow up on invoice ${invoiceNumber} for ${amount}, which was due on ${new Date(dueDate).toLocaleDateString()}.\n\nWould you mind checking on the status of this payment? If you have any questions about the invoice, I'm happy to discuss.\n\nThank you!\n\nBest regards,\n${senderName}`
+
     return (
-      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: '16px', padding: '32px 24px', display: 'flex', flexDirection: 'column', height: '100%', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-        <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'var(--gradient-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', marginBottom: '20px', boxShadow: 'var(--shadow-glow)' }}>
-          <Sparkles size={28} />
+      <div style={{ background: 'var(--bg-card)', border: '1px solid var(--border-subtle)', borderRadius: '16px', padding: '24px', display: 'flex', flexDirection: 'column', height: '100%', position: 'relative', overflow: 'hidden' }}>
+        {/* Blurred preview content */}
+        <div style={{ filter: 'blur(4px)', opacity: 0.5, pointerEvents: 'none', userSelect: 'none' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
+            <div style={{ width: '40px', height: '40px', borderRadius: '10px', background: 'var(--gradient-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white' }}>
+              <Sparkles size={20} />
+            </div>
+            <div>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>AI Assistant</h3>
+              <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
+                {daysOverdue > 0 ? `${daysOverdue} days overdue` : 'Due soon'}
+              </p>
+            </div>
+          </div>
+
+          <div style={{ marginBottom: '16px' }}>
+            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Subject</label>
+            <div style={{ padding: '10px 14px', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-default)', borderRadius: '8px', color: 'var(--text-primary)', fontSize: '0.875rem' }}>
+              {sampleSubject}
+            </div>
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.75rem', fontWeight: 600, color: 'var(--text-muted)', textTransform: 'uppercase', marginBottom: '6px' }}>Message Body</label>
+            <div style={{ padding: '14px', background: 'rgba(0,0,0,0.2)', border: '1px solid var(--border-default)', borderRadius: '8px', color: 'var(--text-primary)', fontSize: '0.875rem', lineHeight: 1.6, whiteSpace: 'pre-wrap' }}>
+              {sampleBody}
+            </div>
+          </div>
         </div>
-        <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '12px' }}>Unlock AI Automation</h3>
-        <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', marginBottom: '32px', maxWidth: '280px', lineHeight: 1.6 }}>
-          Upgrade to the Professional plan to let AI automatically draft the perfect follow-up email based on how overdue this invoice is.
-        </p>
-        <a href="/dashboard/settings" className="btn btn-primary" style={{ width: '100%', maxWidth: '250px', textDecoration: 'none', display: 'flex', justifyContent: 'center' }}>
-          Upgrade to Pro
-        </a>
+
+        {/* Upgrade overlay */}
+        <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', background: 'rgba(15, 15, 25, 0.7)', backdropFilter: 'blur(2px)', borderRadius: '16px', padding: '32px', textAlign: 'center' }}>
+          <div style={{ width: '56px', height: '56px', borderRadius: '14px', background: 'var(--gradient-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'white', marginBottom: '20px', boxShadow: 'var(--shadow-glow)' }}>
+            <Sparkles size={28} />
+          </div>
+          <h3 style={{ fontSize: '1.25rem', fontWeight: 600, marginBottom: '8px' }}>AI-Powered Follow-ups</h3>
+          <p style={{ color: 'var(--text-secondary)', fontSize: '0.875rem', marginBottom: '8px', maxWidth: '280px', lineHeight: 1.6 }}>
+            Let AI draft the perfect email for this invoice. Tone adjusts automatically based on how overdue it is.
+          </p>
+          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem', marginBottom: '24px' }}>
+            Also unlocks: Dispute Resolution · Unlimited Invoices · 8 Languages
+          </p>
+          <a href="/dashboard/settings" className="btn btn-primary" style={{ width: '100%', maxWidth: '250px', textDecoration: 'none', display: 'flex', justifyContent: 'center' }}>
+            Upgrade to Pro — $9/mo
+          </a>
+        </div>
       </div>
     )
   }
@@ -179,9 +227,11 @@ export default function AiEmailGenerator({
           <Sparkles size={20} />
         </div>
         <div>
-          <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>AI Assistant</h3>
-          <p style={{ color: 'var(--text-muted)', fontSize: '0.75rem' }}>
-            {daysOverdue > 0 ? `${daysOverdue} days overdue` : `${Math.abs(daysOverdue)} days until due`}
+          <h3 style={{ fontSize: '1.125rem', fontWeight: 600 }}>{isDisputed ? 'Dispute Resolution' : 'AI Assistant'}</h3>
+          <p style={{ color: isDisputed ? '#f59e0b' : 'var(--text-muted)', fontSize: '0.75rem' }}>
+            {isDisputed 
+              ? '⚠️ Invoice disputed — AI will use de-escalating tone'
+              : (daysOverdue > 0 ? `${daysOverdue} days overdue` : `${Math.abs(daysOverdue)} days until due`)}
           </p>
         </div>
       </div>
@@ -224,6 +274,7 @@ export default function AiEmailGenerator({
           </label>
         </div>
 
+        {!isDisputed && (
         <div style={{ marginTop: '16px' }}>
           <label style={{ display: 'block', marginBottom: '10px', fontWeight: 500, color: 'var(--text-primary)' }}>
             <Sparkles size={14} style={{ display: 'inline', marginRight: '4px', verticalAlign: 'middle' }} />
@@ -271,6 +322,34 @@ export default function AiEmailGenerator({
             disabled={isPending || isSending}
           />
         </div>
+        )}
+
+        {isDisputed && (
+        <div style={{ marginTop: '16px' }}>
+          <div style={{ padding: '12px', background: 'rgba(245, 158, 11, 0.08)', border: '1px solid rgba(245, 158, 11, 0.2)', borderRadius: '8px', marginBottom: '12px' }}>
+            <p style={{ fontSize: '0.8125rem', color: '#f59e0b', margin: 0, lineHeight: 1.6 }}>
+              <strong>Dispute Mode:</strong> AI will generate a professional, de-escalating email focused on resolving the disagreement — not demanding payment.
+            </p>
+          </div>
+          <textarea
+            value={customInstructions}
+            onChange={(e) => setCustomInstructions(e.target.value)}
+            placeholder="Context about the dispute... (e.g. 'Client says they didn't receive the final deliverable' or 'Client disagrees with the hours billed')"
+            style={{ 
+              width: '100%', 
+              background: 'rgba(255,255,255,0.03)', 
+              border: '1px solid rgba(255,255,255,0.1)', 
+              borderRadius: '6px', 
+              padding: '10px 12px', 
+              color: 'var(--text-primary)',
+              fontSize: '0.8125rem',
+              resize: 'vertical',
+              minHeight: '70px'
+            }}
+            disabled={isPending || isSending}
+          />
+        </div>
+        )}
       </div>
 
       {/* Generate Button (initial state) */}
